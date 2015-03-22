@@ -1,1 +1,2 @@
-now read me,please.
+Now read me,please.
+Let's doing this.Start.
