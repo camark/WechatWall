@@ -19,54 +19,52 @@
             background: url(img/body_bg.jpg) 0px 0px repeat-x #000;
         }
         .main_bg {
-            background: url(img/main_bg.jpg) top center no-repeat;
+            background: url(img/main_bg1.1.jpg) top center no-repeat;
             background-size: 100%;
-            /*height: 680px;*/
         }
         .main { 
-            /*width: 1000px;*/
             height: 800px;
             position: relative;
             margin: 0 auto;
         }
-        .num_mask {
-            background:url(img/num_mask.png) 0px 0px no-repeat;
-            height:184px;
-            width:740px;
-            position:absolute;
-            left:50%;
-            top:340px;
-            margin-left:-370px;
-            z-index:9;
+        .roll ,
+        .roll-avatar ,
+        .roll-name {
+            width: 270px;
         }
-        .num_box {
-            height:450px;
-            width:750px;
-            position:absolute;
-            left:50%;
-            top:340px;
-            margin-left:-370px;
-            z-index:8;
-            overflow:hidden;
-            text-align:center;
+        .roll {
+            height: 450px;
+            padding-top: 102px;
+            margin-bottom: 10px;
+            margin-right: auto;
+            margin-left: auto;
         }
-        .num {
-            background:url(img/num.png) top center repeat-y;
-            width:181px;
-            height:265px;
-            float:left;
-            margin-right:6px;
+        .roll-avatar {
+            height: 270px;
         }
-        .btn {
-            background:url(img/btn_start.png) 0px 0px no-repeat;
-            width:264px;
-            height:89px;
-            position:absolute;
-            left:50%;
-            bottom:50px;
-            margin-left:-132px;
-            cursor:pointer;
-            clear:both;
+        .roll-name {
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            color: #fff;
+            font-size: 30px; 
+            background: -webkit-linear-gradient(#FFAB00, #614618);
+            background: -o-linear-gradient(#FFAB00, #614618);
+            background: linear-gradient(#FFAB00, #614618);
+        }
+        .button-group {
+            width: 560px;
+            height: 80px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .start ,
+        .stop ,
+        .return {
+            display: inline-block;;
+            width: 184px;
+            height: 72px;
+            cursor: pointer;
         }
     </style>
 
@@ -82,17 +80,25 @@
     <div class="container-fluid">
         <div class="row">
             <div class="main_bg">
-              <div class="main">
-                <div id="res" style="text-align:center;color:#fff;padding-top:15px;"></div>
-                <div class="num_mask"></div>
-                <div class="num_box">
-                  <div class="num"></div>
-                  <div class="num"></div>
-                  <div class="num"></div>
-                  <div class="num"></div>
-                  <div class="btn"></div>
+                <div class="main">
+                    <div class="box">
+                        <div class="roll">
+                            <div class="roll-avatar"><img src="img/8.jpeg" alt="" class="img-responsive"></div>
+                            <div class="roll-name"><strong>风缘择敏</strong></div>
+                        </div>
+                        <div class="button-group">
+                            <div class="start">
+                                <img src="img/btn_start.png" alt="" class="img-responsive">
+                            </div>
+                            <div class="stop">
+                                <img src="img/btn_start.png" alt="" class="img-responsive">
+                            </div>
+                            <div class="return">
+                                <img src="img/btn_start.png" alt="" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
 
@@ -105,39 +111,88 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/global.js"></script>
     <script>
-        function numRand() {
-            var x = 9999; //上限
-            var y = 1111; //下限
-            var rand = parseInt(Math.random() * (x - y + 1) + y);
-            return rand;
-        }
-        var isBegin = false;
+    avatar = ['1.png','3.jpeg','4.jpeg','5.png','6.jpeg','7.jpeg','8.jpeg','9.jpeg','10.jpeg']
+    list = ['沃德','天','维森','陌','风缘','择敏','熟爱得','卜邀','卜邀得'];
+    
+    // 先随机显示一个图片以及一个名字
+    var init = Math.floor(Math.random() * avatar.length);
+    $('.roll-avatar img').attr('src','img/'+avatar[init]);
+    $(".roll-name").html(list[init]);
 
-        $(function(){
-            var u = 265;
-            $('.btn').click(function(){
-                if(isBegin) return false;
-                isBegin = true;
-                $(".num").css('backgroundPositionY',0);
-                var result = numRand();
-                $('#res').text('摇奖结果 = '+result);
-                var num_arr = (result+'').split('');
-                $(".num").each(function(index){
-                    var _num = $(this);
-                    setTimeout(function(){
-                        _num.animate({ 
-                            backgroundPositionY: (u*60) - (u*num_arr[index])
-                        },{
-                            duration: 6000+index*3000,
-                            easing: "easeInOutCirc",
-                            complete: function(){
-                                if(index==3) isBegin = false;
-                            }
-                        });
-                    }, index * 300);
-                });
-            }); 
-        });
+    // 判断是否已经开始
+    var isBegin = false;
+    $('.start').click(function(){
+        if(isBegin) return false;
+        isBegin = true;
+        // 渐变的
+        timeChange(500);
+        setTimeout(function() {
+            clearInterval(immer);
+            setTimeout(function() {
+                clearInterval(immer); 
+                setTimeout(function() {
+                    clearInterval(immer);
+                    timeChange(12);
+                }, 2000);   
+                timeChange(125);
+            }, 2000);
+            timeChange(250);
+        }, 2000);  
+        // 不渐变的
+        // timeChange(20);           
+    });
+
+    $('.stop').click(function(){
+        isBegin = false;
+        clearInterval(immer);
+    });
+    function timeChange(TIMEOUT) {
+        var i = 0;
+        immer = setInterval(function() {
+            num = Math.floor(Math.random() * avatar.length);        
+            $('.roll-avatar img').attr('src','img/'+avatar[num]);
+            $(".roll-name").html(list[num]);
+            i ++;
+            console.log(i);
+        }, TIMEOUT); 
+        return i;
+    }
+    $(".return").on('click', function(){
+        location.assign("index.html");
+    });
+        // function numRand() {
+        //     var x = 9999; //上限
+        //     var y = 1111; //下限
+        //     var rand = parseInt(Math.random() * (x - y + 1) + y);
+        //     return rand;
+        // }
+        // var isBegin = false;
+
+        // $(function(){
+        //     var u = 265;
+        //     $('.stop').click(function(){
+        //         if(isBegin) return false;
+        //         isBegin = true;
+        //         $(".num").css('backgroundPositionY',0);
+        //         var result = numRand();
+        //         $('#res').text('摇奖结果 = '+result);
+        //         var num_arr = (result+'').split('');
+        //         $(".num").each(function(index){
+        //             var _num = $(this);
+        //             setTimeout(function(){
+        //                 _num.animate({ 
+        //                     backgroundPositionY: (u*60) - (u*num_arr[index])
+        //                 },{
+        //                     duration: 6000+index*3000,
+        //                     easing: "easeInOutCirc",
+        //                     complete: function(){
+        //                         if(index==3) isBegin = false;
+        //                     }
+        //                 });
+        //             }, index * 300);
+        //         });
+        //     }); 
+        // });
 
     </script>
   </body>
