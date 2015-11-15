@@ -67,11 +67,13 @@ a:hover {
 .show-container {
     height: 96%;
     margin-top: 2%;
-    overflow: auto;
+    overflow: hidden;
+    position: relative;
 }
 .window {
     height: 25%;
     background-color: #313131;
+    position: relative;
 }
 .information {
     margin-top: 1%;
