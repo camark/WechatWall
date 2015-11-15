@@ -36,6 +36,7 @@ a:hover {
     background-color: #dcdcdc;
 }
 .adv {
+    font-family: "Microsoft YaHei";
     text-align: center;
 }
 .prize {
@@ -52,6 +53,7 @@ a:hover {
     margin-left: auto;
     border-radius: 10px;
     text-align: center;
+    cursor: pointer;
 }
 /*
 ===================================================
@@ -65,6 +67,7 @@ a:hover {
 .show-container {
     height: 96%;
     margin-top: 2%;
+    overflow: auto;
 }
 .window {
     height: 25%;
