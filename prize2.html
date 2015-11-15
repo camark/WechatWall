@@ -113,6 +113,8 @@
     $('.stop').click(function(){
         isBegin = false;
         clearInterval(immer);
+        $('.avatar img').attr('src','img/1.png');
+        $(".name").html("张瑞");
     });
     function timeChange(TIMEOUT) {
         var i = 0;

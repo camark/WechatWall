@@ -39,13 +39,19 @@ a:hover {
     text-align: center;
 }
 .prize {
-    width: 100px;
-    height: 100px;
+    width: 246px;
+    height: 89px;
     position: absolute;
     bottom: 50px;
-    right: 50px;
+    right: 40px;
+    background-color: #444;
+    color: #fff;
+    font-size: 30px;
+    line-height: 84px;
     margin-right: auto;
     margin-left: auto;
+    border-radius: 10px;
+    text-align: center;
 }
 /*
 ===================================================
@@ -99,7 +105,7 @@ h3 {
 ===================================================
 */
 /*800以下*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) and (max-width: 798px){
     .logo {
         width: 120px;
         height: 120px;
@@ -108,8 +114,8 @@ h3 {
         height: 600px;
     }
     .prize {
-        width: 80px;
-        height: 80px;
+        width: 200px;
+        height: 60px;
         position: absolute;
         bottom: 20px;
         right: 30px;
@@ -139,11 +145,11 @@ h3 {
         height: 600px;
     }
     .prize {
-        width: 80px;
+        width: 260px;
         height: 80px;
         position: absolute;
         bottom: 20px;
-        right: 30px;
+        /*right: 30px;*/
     }
     .show-data {
         height: 600px;
