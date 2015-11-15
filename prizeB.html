@@ -115,7 +115,7 @@
 	<script>
 	function numRand() {
 		var x = 300; //上限
-		var y = 0; //下限
+		var y = 1; //下限
 		var rand = parseInt(Math.random() * (x - y + 1) + y);
 		return rand;
 	}
@@ -135,29 +135,74 @@
 			};
 			$('#res').text('摇奖结果 = '+result);
 
-			var num_arr = (result+'').split('');
-			$(".num").each(function(index){
-				var _num = $(this);
-                var _rand = Math.random
-				setTimeout(function(){
-					_num.animate({ 
-						backgroundPositionY: (u * 60) - (u * num_arr[index])
-					},{
-						duration: 6000 + index * 3000,
-                        easing: "easeInOutBack",
-                        // easing: "easeOutElastic",
-						// easing: "easeInOutCirc",
-						complete: function(){
-							if(index==2) 
-								isBegin = false;
-						}
+			var _rand = parseInt(Math.random() * 3);
+
+			switch (_rand) {
+				// 随机选择抽奖效果
+                	case 0:
+                	var num_arr = (result+'').split('');
+					$(".num").each(function(index){
+						var _num = $(this);
+                		setTimeout(function(){
+							_num.animate({ 
+							backgroundPositionY: (u * 60) - (u * num_arr[index])
+							},{
+								duration: 6000 + index * 3000,
+                        		easing: "easeInOutBack",
+								complete: function(){
+									if(index==2) 
+										isBegin = false;
+									}
+							});
+						}, index * 500);
 					});
-				}, index * 500);
-			});
+					break;
+
+					case 1:
+					var num_arr = (result+'').split('');
+					$(".num").each(function(index){
+						var _num = $(this);
+						setTimeout(function(){
+							_num.animate({ 
+								backgroundPositionY: (u * 60) - (u * num_arr[index])
+							},{
+								duration: 6000 + index * 3000,
+                        		easing: "easeOutElastic",
+								complete: function(){
+									if(index==2) 
+										isBegin = false;
+								}
+							});
+						}, index * 500);
+					});
+					break;
+
+
+					case 2:
+					var num_arr = (result+'').split('');
+					$(".num").each(function(index){
+						var _num = $(this);
+						setTimeout(function(){
+							_num.animate({ 
+								backgroundPositionY: (u * 60) - (u * num_arr[index])
+							},{
+								duration: 6000 + index * 3000,
+								easing: "easeInOutCirc",
+								complete: function(){
+									if(index==2) 
+										isBegin = false;
+								}
+							});
+						}, index * 500);	
+					});
+					break;
+            }
 		});	
 
 		$(".return").click(function(){
-			location.assign("index.html");
+			// location.assign("index.html");
+			window.history.go(-1);
+			// console.log(1);
 		});
 	});
 

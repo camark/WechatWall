@@ -4,7 +4,6 @@ $(".prize").on('click', function(){
 });
 // 定时刷新页面	
 setInterval(function(){
-    // planB
     // 收起
     // $(".window").first().slideUp(700);
 	// 添加
@@ -25,8 +24,6 @@ setInterval(function(){
     //     $('.window').first().remove();
     //     $(".window").last().fadeIn(700);
     // }, 705);
-
-    // planA
     $(".window").first().animate({ 
         top: "-80px"
     },{ 
