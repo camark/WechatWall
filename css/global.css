@@ -8,6 +8,7 @@ body {
     background-image: url("../img/background2.jpg");
     background-size: 100% 100%;
 	color: #444;
+    font-family: "Microsoft yahei";
 }
 .container {
     padding-left: 0;
@@ -54,6 +55,9 @@ a:hover {
     font-family: "Microsoft YaHei";
     text-align: center;
 }
+.p1 {
+    color: #000;
+}
 .prize {
     width: 246px;
     height: 89px;
@@ -88,9 +92,9 @@ a:hover {
     position: relative;
 }
 .window {
-    height: 25%;
     opacity: 0.88;
     /*background-color: #313131;*/
+    height: 184px;
     position: relative;
 }
 .information {
@@ -262,11 +266,11 @@ h3 {
         font-size: 27px;
     }
     h1 {
-        font-size: 31px;
+        font-size: 29px;
     }
     .p3 {
         line-height: 1.2;
-        font-size: 22px;
+        font-size: 20px;
     }
     .p2 {
         line-height: 1.2;
@@ -274,11 +278,11 @@ h3 {
     }
     .p1 {
         line-height: 1.2;
-        font-size: 32px;
+        font-size: 30px;
     }
 }
 /*1680*1050*/
-@media screen and (min-width: 1368px) and (max-width: 1681px) {
+@media screen and (min-width: 1370px) and (max-width: 1681px) {
     .logo-adv {
         height: 1050px;
     }

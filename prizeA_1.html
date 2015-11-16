@@ -95,9 +95,9 @@
             <div class="box">
                 <div class="roll">
                     <div class="roll-avatar">
-                        <img src="img/8.jpeg" alt="" class="img-responsive">
+                        <img src="img/nanyou.jpg" alt="" class="img-responsive">
                     </div>
-                    <div class="roll-name"><strong>风缘择敏</strong></div>
+                    <div class="roll-name"><strong>南邮计软院</strong></div>
                 </div>
                 <div class="button-group">
                     <div class="start">开始</div>
@@ -113,33 +113,33 @@
     <script src="js/jquery.easing.1.3.js"></script>
     <!--<script src="js/global.js"></script>-->
     <script>
-    avatar = ['1.png','3.jpeg','4.jpeg','5.png','6.jpeg','7.jpeg','8.jpeg','9.jpeg','10.jpeg']
-    list = ['沃德','天','维森','陌','风缘','择敏','熟爱得','卜邀','卜邀得'];
+    // avatar = ['1.png','3.jpeg','4.jpeg','5.png','6.jpeg','7.jpeg','8.jpeg','9.jpeg','10.jpeg']
+    // list = ['沃德','天','维森','陌','风缘','择敏','熟爱得','卜邀','卜邀得'];
     
     // 先随机显示一个图片以及一个名字
-    var init = Math.floor(Math.random() * avatar.length);
-    $('.roll-avatar img').attr('src','img/'+avatar[init]);
-    $(".roll-name").html(list[init]);
+    // var init = Math.floor(Math.random() * avatar.length);
+    // $('.roll-avatar img').attr('src','img/'+avatar[init]);
+    // $(".roll-name").html(list[init]);
 
     // 判断是否已经开始
     var isBegin = false;
-    $('.start').click(function(){
-        if(isBegin) return false;
-        isBegin = true;
-        TIMEOUT = 500;
-        // 渐变的
-        timeChange(500);          
-    });
+    // $('.start').click(function(){
+    //     if(isBegin) return false;
+    //     isBegin = true;
+    //     TIMEOUT = 500;
+    //     // 渐变的
+    //     timeChange(500);          
+    // });
 
-    $('.stop').click(function(){
-        isBegin = false;
-        clearTimeout(immer);
-    });
+    // $('.stop').click(function(){
+    //     isBegin = false;
+    //     clearTimeout(immer);
+    // });
     var TIMEOUT = 500;
     function timeChange() {
         num = Math.floor(Math.random() * avatar.length);        
-        $('.roll-avatar img').attr('src','img/'+avatar[num]);
-        $(".roll-name").html(list[num]);
+        $('.roll-avatar img').attr('src',avatar[num].src);
+        $(".roll-name").html(people[num].name);
         immer = setTimeout(function() {
             TIMEOUT -= 50;
             if(TIMEOUT < 25) TIMEOUT = 25;
@@ -148,9 +148,83 @@
         }, TIMEOUT); 
     }
 
-    // $(".return").on('click', function(){
-    //     location.assign("index.html");
+    // 图片预加载
+    var people = [
+        {
+            "id":"1",
+            "avatar":"http://img.name2012.com/uploads/allimg/2015-06/30-023126_211.jpg",
+            "name":"沃德"
+        },
+        {
+            "id":"1",
+            "avatar":"http://img.name2012.com/uploads/allimg/2015-06/30-023126_748.jpg",
+            "name":"天"
+        },
+        {
+            "id":"1",
+            "avatar":"http://img.name2012.com/uploads/allimg/2015-06/30-023126_211.jpg",
+            "name":"维森"
+        },
+        {
+            "id":"1",
+            "avatar":"http://img.name2012.com/uploads/allimg/2015-06/30-023128_299.jpg",
+            "name":"陌"
+        },
+        {
+            "id":"1",
+            "avatar":"http://img.name2012.com/uploads/allimg/2015-06/30-023128_688.jpg",
+            "name":"风缘"
+        },
+        {
+            "id":"1",
+            "avatar":"http://img.name2012.com/uploads/allimg/2015-06/30-023131_451.jpg",
+            "name":"择敏"
+        }
+    ];
+    var avatar = [];
+    // var list = [];
+    // $.ajax({ 
+    //     type: "GET",    
+    //     url: "http://2.934067696.sinaapp.com/index.php",
+    //     dataType:'jsonp',  
+    //     data:'',  
+    //     jsonp:'callback',  
+    //     success:function(result) { 
+                    
+    //     },  
+    //     timeout:3000, //请求超时时间
+    //     error: function(jqXHR){     
+    //         console.log("发生错误：" + jqXHR.status);  
+    //     },     
     // });
+    loadImgs();
+    function loadImgs(){
+        var loadedImages = 0;
+        var numImages = people.length;
+        for (var i=0;i<numImages;i++) {
+            avatar[i] = new Image();
+            avatar[i].onload = function() {
+                console.log(loadedImages + '/' + numImages);
+                if (++loadedImages >= numImages) {
+                    // callback
+                    $('.start').click(function(){
+                        if(isBegin) return false;
+                        isBegin = true;
+                        TIMEOUT = 500;
+                        // 渐变的
+                        timeChange(500);          
+                    });
+
+                    $('.stop').click(function(){
+                        isBegin = false;
+                        clearTimeout(immer);
+                    });
+                }
+            };
+            avatar[i].src = people[i].avatar;
+            // list[i] = people[i].name;
+        }
+    }
 
     </script>
 </html>
