@@ -1,14 +1,20 @@
-// 点击抽奖跳转
-$(".prize").on('click', function(){
-    location.assign("prizeB.html");
-});
-
-getData();
+var time1,getTimer;
+// 页面加载完后触发
+$(function(){
+    getData();
+    $(window).on('blur',function(){
+        clearInterval(time1);
+        clearInterval(getTimer);
+    });
+    $(window).on('focus',function(){
+        getData();
+    });   
+})
 // 定时获取数据
 function getData() {
     setInterval(Ajax, 3000);
 }
-var time1;
+
 // Ajax
 function Ajax() {
     $.ajax({ 
@@ -20,24 +26,26 @@ function Ajax() {
         success:function(result) { 
             console.log(result);
             var page = $(".show-container");
-            setTimeout(function(){
+            // setTimeout(function() {
                 clearInterval(time1);
                 $(".show-container").append(
                     "<div class='window'>" +
-                    "<div class='information col-lg-3 col-md-3 col-sm-3 col-xs-3'>" +
-                    "<div class='avatar'>" +
+                    "<div class='information col-lg-2 col-md-2 col-sm-2 col-xs-2'>" +
                     "<img class='img-responsive' src='" + result.avatar + "'>" +
-                    "</div></div>" +
-                    "<div class='show col-lg-9 col-md-9 col-sm-9 col-xs-9'>" +
+                    "</div>" +
+                    "<div class='show col-lg-8 col-md-8 col-sm-8 col-xs-8'>" +
                     "<h3><strong>" + result.name + "</strong></h3>" +
-                    "<h1>" + result.words  + "</h1>" +
-                    "<div class='btn btn-primary'>上墙</div>" +
+                    "<p>" + result.words  + "</p></div>" +
+                    "<div class='wall col-lg-2 col-md-2 col-sm-2 col-xs-2'>" +
+                    "<div class='btn btn-primary'>上墙</div>"+
                     "</div></div>"
                     );
+                // $(".window").first().remove();
                     time1 = setInterval(function(){
                         page.scrollTop(page.scrollTop()+1);
                     },8);
-            },3000);
+            // },3000);
+            
         },  
         timeout:3000, //请求超时时间
         error: function(jqXHR){     
