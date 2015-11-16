@@ -2,13 +2,24 @@
 $(".prize").on('click', function(){
     location.assign("prizeB.html");
 });
+// 页面加载完后触发
+$(function(){
+    getData();
+    $(window).on('blur',function(){
+        clearInterval(time1);
+        clearInterval(getTimer);
+    });
+    $(window).on('focus',function(){
+        getData();
+    });
+})
 
-getData();
 // 定时获取数据
 function getData() {
-    setInterval(Ajax, 3000);
+    getTimer = setInterval(Ajax, 3000);
 }
 var time1;
+var getTimer;
 // Ajax
 function Ajax() {
     $.ajax({ 
@@ -44,6 +55,8 @@ function Ajax() {
         },     
     });
 }
+
+
 
 // roll();
 // 定时刷新页面，页面滚动	
