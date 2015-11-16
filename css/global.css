@@ -4,7 +4,9 @@
 ===================================================
 */
 body {
-	background-color: #f5f5f5;
+	/*background-color: #f5f5f5;*/
+    background-image: url("../img/background2.jpg");
+    background-size: 100% 100%;
 	color: #444;
 }
 .container {
@@ -74,7 +76,7 @@ a:hover {
 ===================================================
 */
 .show-data {
-    background-color: #313131;
+    /*background-color: #313131;*/
     height: 800px;
 }
 .show-container {
@@ -87,7 +89,8 @@ a:hover {
 }
 .window {
     height: 25%;
-    background-color: #313131;
+    opacity: 0.88;
+    /*background-color: #313131;*/
     position: relative;
 }
 .information {
@@ -159,8 +162,8 @@ h3 {
 /*800*600*/
 @media screen and (min-width: 799px) and (max-width: 1000px) {
     .logo {
-        width: 160px;
-        height: 160px;
+        width: 100px;
+        height: 100px;
     }
     .logo-adv {
         height: 600px;
@@ -185,6 +188,18 @@ h3 {
     }
     h1 {
         font-size: 23px;
+    }
+    .p3 {
+        line-height: 1.1;
+        font-size: 17px;
+    }
+    .p2 {
+        line-height: 1.1;
+        font-size: 20px;
+    }
+    .p1 {
+        line-height: 1.1;
+        font-size: 25px;
     }
 }
 /*1280*800 在MAC上面默认的*/
@@ -228,6 +243,10 @@ h3 {
 }
 /*1366*768*/
 @media screen and (min-width: 1282px) and (max-width: 1367px) {
+    .logo {
+        width: 160px;
+        height: 160px;
+    }
     .logo-adv {
         height: 768px;
     }
@@ -245,11 +264,27 @@ h3 {
     h1 {
         font-size: 31px;
     }
+    .p3 {
+        line-height: 1.2;
+        font-size: 22px;
+    }
+    .p2 {
+        line-height: 1.2;
+        font-size: 23px;
+    }
+    .p1 {
+        line-height: 1.2;
+        font-size: 32px;
+    }
 }
 /*1680*1050*/
 @media screen and (min-width: 1368px) and (max-width: 1681px) {
     .logo-adv {
         height: 1050px;
+    }
+    .logo {
+        width: 230px;
+        height: 230px;
     }
     .show-data {
         height: 1050px;
@@ -265,25 +300,53 @@ h3 {
     h1 {
         font-size: 45px;
     }
+    .p3 {
+        line-height: 1.3;
+        font-size: 24px;
+    }
+    .p2 {
+        line-height: 1.2;
+        font-size: 29px;
+    }
+    .p1 {
+        line-height: 1.3;
+        font-size: 36px;
+    }
 }
 /*1920*1080*/
 @media screen and (min-width: 1682px) and (max-width: 1921px) {
     .logo-adv {
         height: 1080px;
     }
+    .logo {
+        width: 240px;
+        height: 240px;
+    }
     .show-data {
         height: 1080px;
     }
     .avatar {
         margin-top: 6%;
-        width: 49%;
-        height: 60%;
+        width: 63%;
+        height: 63%;
     }
     h3 {
         font-size: 35px;
     }
     h1 {
         font-size: 50px;
+    }
+    .p3 {
+        line-height: 1.2;
+        font-size: 26px;
+    }
+    .p2 {
+        line-height: 1.2;
+        font-size: 23px;
+    }
+    .p1 {
+        line-height: 1.2;
+        font-size: 38px;
     }
 }
 /*
