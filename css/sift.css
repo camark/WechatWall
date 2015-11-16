@@ -35,148 +35,51 @@ a:hover {
     position: relative;
 }
 .window {
-    height: 25%;
-    background-color: #313131;
+    height: 20%;
+    margin-bottom: 10px;
+    background-color: #dcdcdc;
     position: relative;
 }
 .information {
-    margin-top: 1%;
-    height: 90%;
-    background-color: #dcdcdc;
+    /*margin-top: 1%;*/
+    height: 100%;
+    /*background-color: #dcdcdc;*/
+}
+.information img{
+    width: 60%;
+    height: auto;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.avatar {
+/*.avatar {
     margin-top: 4%;
     height: 60%;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     background-color: #dcdcdc;
-}
+}*/
 .show {
-    margin-top: 1%;
-    height: 90%;
-    background-color: #dcdcdc;
+    height: 100%;
 }
-.show h1 {
+.show p {
+    font-size: 20px;
+    font-family: "Microsoft yahei";
     line-height: 1.2;
     color: #111;
     margin: 0;
 }
-/*
-===================================================
-                微信墙--自适应
-===================================================
-*/
-/*800以下*/
-@media screen and (min-width: 600px) and (max-width: 798px){
-    .show-data {
-        height: 600px;
-    }
-    .avatar {
-        margin-top: 9%;
-        width: 68%;
-        height: 57%;
-    }
-    h3 {
-        font-size: 15px;
-    }
-    h1 {
-        font-size: 22px;
-    }
+.wall{
+    height: 100%;
 }
-/*800*600*/
-@media screen and (min-width: 799px) and (max-width: 1000px) {
-    .show-data {
-        height: 600px;
-    }
-    .avatar {
-        margin-top: 9%;
-        width: 62%;
-        height: 62%;
-    }
-    h3 {
-        font-size: 19px;
-    }
-    h1 {
-        font-size: 23px;
-    }
+.wall .btn{
+    width: 60%;
+    margin: 30% 25%;
 }
-/*1280*800 在MAC上面默认的*/
-@media screen and (min-width: 1001px) and (max-width: 1281px) {
-    .show-data {
-        height: 800px;
-    }
-    .avatar {
-        margin-top: 7%;
-        height: 55%;
-        width: 50%;
-    }
-    h3 {
-        font-size: 25px;
-    }
-    h1 {
-        font-size: 30px;
-    }
-}
-/*1366*768*/
-@media screen and (min-width: 1282px) and (max-width: 1367px) {
-    .show-data {
-        height: 768px;
-    }
-    .avatar {
-        margin-top: 6%;
-        width: 50%;
-        height: 50%;
-    }
-    h3 {
-        font-size: 27px;
-    }
-    h1 {
-        font-size: 31px;
-    }
-}
-/*1680*1050*/
-@media screen and (min-width: 1368px) and (max-width: 1681px) {
-    .show-data {
-        height: 1050px;
-    }
-    .avatar {
-        margin-top: 6%;
-        width: 50%;
-        height: 50%;
-    }
-    h3 {
-        font-size: 30px;
-    }
-    h1 {
-        font-size: 45px;
-    }
-}
-/*1920*1080*/
-@media screen and (min-width: 1682px) and (max-width: 1921px) {
-    .show-data {
-        height: 1080px;
-    }
-    .avatar {
-        margin-top: 6%;
-        width: 49%;
-        height: 49%;
-    }
-    h3 {
-        font-size: 35px;
-    }
-    h1 {
-        font-size: 50px;
-    }
-}
-/*
-===================================================
-                抽奖--自适应
-===================================================
-*/
