@@ -42,6 +42,7 @@
             margin-bottom: 10px;
             margin-right: auto;
             margin-left: auto;
+            display: inline-block;
         }
         .roll-avatar {
             height: 270px;
@@ -94,9 +95,15 @@
             <div class="box">
                 <div class="roll">
                     <div class="roll-avatar">
-                        <img src="img/8.jpeg" alt="" class="img-responsive">
+                        <img src="img/8.jpeg" alt="" class="img-responsive prize_1">
                     </div>
-                    <div class="roll-name"><strong>风缘择敏</strong></div>
+                    <div class="roll-name prizer_1">风缘择敏</div>
+                </div>
+                <div class="roll">
+                    <div class="roll-avatar">
+                        <img src="img/8.jpeg" alt="" class="img-responsive prize_2">
+                    </div>
+                    <div class="roll-name prizer_2">风缘择敏</div>
                 </div>
                 <div class="button-group">
                     <div class="start">开始</div>
@@ -136,9 +143,14 @@
     });
     var TIMEOUT = 500;
     function timeChange() {
-        num = Math.floor(Math.random() * avatar.length);        
-        $('.roll-avatar img').attr('src','img/'+avatar[num]);
-        $(".roll-name").html(list[num]);
+        num1 = Math.floor(Math.random() * avatar.length);        
+        do {
+            num2 = Math.floor(Math.random() * avatar.length);
+        }while(num1 == num2)
+        $('.prize_1').attr('src','img/'+avatar[num1]);
+        $(".prizer_1").html(list[num1]);        
+        $('.prize_2').attr('src','img/'+avatar[num2]);
+        $(".prizer_2").html(list[num2]);
         immer = setTimeout(function() {
             TIMEOUT -= 50;
             if(TIMEOUT < 25) TIMEOUT = 25;
