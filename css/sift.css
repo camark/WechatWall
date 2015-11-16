@@ -19,44 +19,6 @@ a:hover {
 }
 /*
 ===================================================
-                微信墙--计软院标题广告
-===================================================
-*/
-.logo-adv {
-    background-color: #c9c9c9;
-    height: 800px;
-}
-.logo {
-    margin-top: 70px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 200px;
-    height: 200px;
-    /*background-color: #dcdcdc;*/
-}
-.adv {
-    font-family: "Microsoft YaHei";
-    text-align: center;
-}
-.prize {
-    width: 246px;
-    height: 89px;
-    position: absolute;
-    bottom: 50px;
-    right: 40px;
-    background-color: #444;
-    color: #fff;
-    font-size: 30px;
-    line-height: 84px;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-}
-/*
-===================================================
                 微信墙--信息展示
 ===================================================
 */
@@ -114,20 +76,6 @@ h3 {
 */
 /*800以下*/
 @media screen and (min-width: 600px) and (max-width: 798px){
-    .logo {
-        width: 120px;
-        height: 120px;
-    }
-    .logo-adv {
-        height: 600px;
-    }
-    .prize {
-        width: 200px;
-        height: 60px;
-        position: absolute;
-        bottom: 20px;
-        right: 30px;
-    }
     .show-data {
         height: 600px;
     }
@@ -145,27 +93,13 @@ h3 {
 }
 /*800*600*/
 @media screen and (min-width: 799px) and (max-width: 1000px) {
-    .logo {
-        width: 160px;
-        height: 160px;
-    }
-    .logo-adv {
-        height: 600px;
-    }
-    .prize {
-        width: 260px;
-        height: 80px;
-        position: absolute;
-        bottom: 20px;
-        /*right: 30px;*/
-    }
     .show-data {
         height: 600px;
     }
     .avatar {
-        margin-top: 12%;
-        width: 89%;
-        height: 72%;
+        margin-top: 9%;
+        width: 62%;
+        height: 62%;
     }
     h3 {
         font-size: 19px;
@@ -176,20 +110,13 @@ h3 {
 }
 /*1280*800 在MAC上面默认的*/
 @media screen and (min-width: 1001px) and (max-width: 1281px) {
-    .logo {
-        width: 200px;
-        height: 200px;
-    }
-    .logo-adv {
-        height: 800px;
-    }
     .show-data {
         height: 800px;
     }
     .avatar {
         margin-top: 7%;
-        height: 80%;
-        width: 72%;
+        height: 55%;
+        width: 50%;
     }
     h3 {
         font-size: 25px;
@@ -200,16 +127,13 @@ h3 {
 }
 /*1366*768*/
 @media screen and (min-width: 1282px) and (max-width: 1367px) {
-    .logo-adv {
-        height: 768px;
-    }
     .show-data {
         height: 768px;
     }
     .avatar {
         margin-top: 6%;
-        width: 65%;
-        height: 57%;
+        width: 50%;
+        height: 50%;
     }
     h3 {
         font-size: 27px;
@@ -220,16 +144,13 @@ h3 {
 }
 /*1680*1050*/
 @media screen and (min-width: 1368px) and (max-width: 1681px) {
-    .logo-adv {
-        height: 1050px;
-    }
     .show-data {
         height: 1050px;
     }
     .avatar {
         margin-top: 6%;
-        width: 69%;
-        height: 57%;
+        width: 50%;
+        height: 50%;
     }
     h3 {
         font-size: 30px;
@@ -240,16 +161,13 @@ h3 {
 }
 /*1920*1080*/
 @media screen and (min-width: 1682px) and (max-width: 1921px) {
-    .logo-adv {
-        height: 1080px;
-    }
     .show-data {
         height: 1080px;
     }
     .avatar {
         margin-top: 6%;
         width: 49%;
-        height: 60%;
+        height: 49%;
     }
     h3 {
         font-size: 35px;
