@@ -70,7 +70,8 @@
             width: 72px;
             height: 72px;
             cursor: pointer;
-            background: rgba(253,253,253,0.8);
+            /*background: rgba(253,253,253,0.8);*/
+            background-color: #ebb433;
             border-radius: 50%;
 
             font-size: 20px;
@@ -124,8 +125,11 @@
     
     // 先随机显示一个图片以及一个名字
     var init = Math.floor(Math.random() * avatar.length);
-    $('.roll-avatar img').attr('src','img/'+avatar[init]);
-    $(".roll-name").html(list[init]);
+    var init2 = Math.floor(Math.random() * avatar.length);
+    $('.prize_1').attr('src','img/'+avatar[init]);
+    $(".prizer_1").html(list[init]);
+    $('.prize_2').attr('src','img/'+avatar[init2]);
+    $(".prizer_2").html(list[init2]);
 
     // 判断是否已经开始
     var isBegin = false;

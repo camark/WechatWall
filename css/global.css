@@ -23,19 +23,32 @@ a:hover {
 ===================================================
 */
 .logo-adv {
+    /*margin-top: 50px;*/
     background-color: #c9c9c9;
     height: 800px;
 }
 .logo {
-    margin-top: 70px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     /*background-color: #dcdcdc;*/
 }
+.logo-min {
+    margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    /*text-align: center;*/
+}
+.logo-min img {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+}
 .adv {
+    margin-top: 10px;
     font-family: "Microsoft YaHei";
     text-align: center;
 }
@@ -177,8 +190,8 @@ h3 {
 /*1280*800 在MAC上面默认的*/
 @media screen and (min-width: 1001px) and (max-width: 1281px) {
     .logo {
-        width: 200px;
-        height: 200px;
+        width: 170px;
+        height: 170px;
     }
     .logo-adv {
         height: 800px;
@@ -194,8 +207,23 @@ h3 {
     h3 {
         font-size: 25px;
     }
+    h2 {
+        font-size: 23px;
+    }
     h1 {
-        font-size: 30px;
+        font-size: 32px;
+    }
+    .p3 {
+        line-height: 1.2;
+        font-size: 22px;
+    }
+    .p2 {
+        line-height: 1.2;
+        font-size: 23px;
+    }
+    .p1 {
+        line-height: 1.2;
+        font-size: 32px;
     }
 }
 /*1366*768*/
