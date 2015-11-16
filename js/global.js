@@ -2,6 +2,7 @@
 $(".prize").on('click', function(){
     location.assign("prizeB.html");
 });
+var time1,getTimer;
 // 页面加载完后触发
 $(function(){
     getData();
@@ -18,10 +19,10 @@ $(function(){
 function getData() {
     getTimer = setInterval(Ajax, 3000);
 }
-var time1;
-var getTimer;
+
 // Ajax
 function Ajax() {
+
     $.ajax({ 
         type: "GET",    
         url: "http://2.934067696.sinaapp.com/index.php",
@@ -29,9 +30,10 @@ function Ajax() {
         data:'',  
         jsonp:'callback',  
         success:function(result) { 
-            console.log(result);
+            // console.log(result);
             var page = $(".show-container");
             setTimeout(function(){
+                console.log(result);
                 clearInterval(time1);
                 $(".show-container").append(
                     "<div class='window'>" +
@@ -47,7 +49,7 @@ function Ajax() {
                     time1 = setInterval(function(){
                         page.scrollTop(page.scrollTop()+1);
                     },8);
-            },3000);
+            },5000);
         },  
         timeout:3000, //请求超时时间
         error: function(jqXHR){     
