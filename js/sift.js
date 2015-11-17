@@ -1,8 +1,10 @@
-var time1, getTimer;
+var time1, getTimer , count = 0;
 // id = new Array();
-name1 = new Array();
-avatar = new Array();
-content = new Array();
+// nickName = new Array();
+// avatar = new Array();
+// content = new Array();
+// msgId = new Array();
+var data = []
 
 // 页面加载完后触发
 $(function(){
@@ -17,27 +19,72 @@ $(function(){
 })
 // 定时获取数据
 function getData() {
-    // setInterval(Ajax, 3000);
+    
+    if(count == 0) {
+        $.ajax({ 
+            type: "GET",    
+            url: "http://115.28.240.51/wechat/msglist.php?Msg=" + count,
+            dataType:'json',  
+            data:'',    
+            success:function(result) { 
+                if(!result) {
+                    getData();
+                    return;
+                }
+                count ++;
+                console.log(result);
+                // id.push(result.id);
+                data.push({
+                    nickName： result.nickName，
+                    avatar:    result.avatar,
+                    content:   result.words
+                })
+                // nickName.push(result.nickName);
+                // avatar.push(result.avatar);
+                // content.push(result.words); 
+                Msg = result.msgId;
+                msgId.push(result.msgId);
+                console.log(data[data.length-1])
+                // console.log(name1);
+                // console.log(avatar);
+                // console.log(content);
+
+            },  
+            timeout:3000, //请求超时时间
+            error: function(jqXHR){     
+                gerData();
+                console.log("发生错误：" + jqXHR.status);  
+            },     
+        });
+    } else if(count > 0) {
+        setInterval(Ajax(Msg), 3000);
+    }
 }
 
 // Ajax
-function Ajax() {
+function Ajax(Msg) {
     $.ajax({ 
         type: "GET",    
-        url: "http://115.28.240.51/wechat/push.php",
-        // url: "http://2.934067696.sinaapp.com",
+        url: "http://115.28.240.51/wechat/msglist.php?msgid=" + Msg,
         dataType:'json',  
         data:'',  
-        // jsonp:'callback',  
         success:function(result) { 
             console.log(result);
-            // id.push(result.id);
-            name1.push(result.name);
-            avatar.push(result.avatar);
-            content.push(result.words); 
-            console.log(name1);
-            console.log(avatar);
-            console.log(content);      
+            // nickName.push(result.name);
+            // avatar.push(result.avatar);
+            // content.push(result.words);
+            // msgId.push(result.msgid);
+            data.push({
+                nickName: result.name,
+                avatar:   result.avatar,
+                content:  result.words,
+                msgId:    result.msgid
+            })
+            Msg = result.msgId;
+            // console.log(nickName);
+            // console.log(avatar);
+            // console.log(content); 
+            // console.log(msgId);   
         },  
         timeout:3000, //请求超时时间
         error: function(jqXHR){     
@@ -54,16 +101,17 @@ function roll() {
     var page = $(".show-container");
     setTimeout(function(){
         clearInterval(time1);
+        // var top = document.getComp
         $(".show-container").append(
             "<div class='window'>" +
             "<div class='information col-lg-2 col-md-2 col-sm-2 col-xs-2'>" +
-            "<img class='img-responsive' src='" + avatar[i] + "'>" +
+            "<img class='img-responsive' src='" + data[i].avatar + "'>" +
             "</div>" +
             "<div class='show col-lg-8 col-md-8 col-sm-8 col-xs-8'>" +
-            "<h3><strong>" + name1[i] + "</strong></h3>" +
-            "<p>" + content[i]  + "</p></div>" +
+            "<h3><strong>" + data[i].nickName + "</strong></h3>" +
+            "<p>" + data[i].content  + "</p></div>" +
             "<div class='wall col-lg-2 col-md-2 col-sm-2 col-xs-2'>" +
-            "<div title='" + + "' class='btn btn-primary'>上墙</div>"+
+            "<div title='" + data[i].msgid + "' class='btn btn-primary'>上墙</div>"+
             "</div></div>"
             );
         time1 = setInterval(function(){
@@ -79,10 +127,8 @@ $(".btn").on("click", function(){
     // alert("1");
     $.ajax({ 
         type: "GET",    
-        url: "http://115.28.240.51/?" + $(this).attr("title"),
-        dataType:'jsonp',  
+        url: "http://115.28.240.51/wechat/push.php?" + $(this).attr("title"),
         data:'',  
-        jsonp:'callback',  
         success:function(result) { 
             alert("上墙成功");    
         },  

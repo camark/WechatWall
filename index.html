@@ -17,6 +17,28 @@
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    html, body {
+        height: 100%;
+        overflow: hidden;
+    }
+    #msg-display{
+        overflow: hidden;
+    }
+    #msg-container {
+        transition: top 1s, transform 1s;
+        /*top: 0;*/
+        transform: translate(0px, -0px);
+        height: auto;
+    }
+    .window{
+        box-sizing: border-box;
+        height: 25vh;   /* TODO: fix screen height */;
+    }
+    .show, .information, .window {
+        margin-top: 0%;
+    }
+    </style>
 </head>
 
 <body>
@@ -54,8 +76,8 @@
             </div>
 
             <!-- 信息展示 -->
-            <div class="show-data col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                <div class="show-container">
+            <div id="msg-display" class="show-data col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div id="msg-container" class="show-container">
                     
                     <div class="window">
                         <div class="information col-lg-3 col-md-3 col-sm-3 col-xs-3">

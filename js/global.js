@@ -3,17 +3,18 @@ $(".prize").on('click', function(){
     location.assign("prizeB.html");
 });
 var time1,time2,getTimer;
+var curMsg = 1
 // 页面加载完后触发
 $(function(){
     getData();
     wallScroll();
-    $(window).on('blur',function(){
-        clearInterval(time1);
-        clearInterval(time2);
-    });
-    $(window).on('focus',function(){
-        wallScroll();
-    });
+    // $(window).on('blur',function(){
+    //     clearInterval(time1);
+    //     clearInterval(time2);
+    // });
+    // $(window).on('focus',function(){
+    //     wallScroll();
+    // });
 })
 
 // 定时获取数据
@@ -29,17 +30,32 @@ function wallScroll() {
     // 将show的margin-top取出并转换为number
     // var showMargin = parseFloat($(".show").css('margin-top').split("px")[0]);
     time2 = setInterval(function(){
-        var sHeight = page.scrollTop();
-        console.log(page.scrollTop());
-        clearInterval(time1);
-        time1 = setInterval(function(){
-            iHeight = page.scrollTop() + 1;
-            page.scrollTop(iHeight);
-            if((iHeight - sHeight) >= wHeight){
-                clearInterval(time1);
-            }
-        },8);
-    },6000);
+        var cont = document.querySelector('#msg-container')
+        var nth  = $('#msg-container > div:nth-child('+curMsg+')')
+        if (nth.length === 0) return
+        var nTop = nth.offset().top
+        var pTop = nth.parent().offset().top
+        var dTop = pTop - nTop
+        console.log(dTop)
+        curMsg++
+        //if (curMsg===0) 
+        // calculate new scroll distance
+        //scrollDist -= 184;
+        var transformStr = 'translate(-0, '+dTop+'px);'
+        //console.log(transformStr)
+        cont.style = 'transform: '+transformStr
+
+        // var sHeight = page.scrollTop();
+        // console.log(page.scrollTop());
+        // clearInterval(time1);
+        // time1 = setInterval(function(){
+        //     iHeight = page.scrollTop() + 1;
+        //     page.scrollTop(iHeight);
+        //     if((iHeight - sHeight) >= wHeight){
+        //         clearInterval(time1);
+        //     }
+        // },8);
+    }, 6000);
 }
 
 // Ajax
