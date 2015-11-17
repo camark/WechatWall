@@ -40,7 +40,7 @@ function getData() {
                     data.push({
                         NickName:  msg.NickName,
                         FakeId:    msg.FakeId,
-                        Content:   msg.Content,
+                        Content:   msg.Content.split('#')[1],
                         MsgId:     msg.MsgId,
                     })
                 })
@@ -162,6 +162,7 @@ function roll() {
         
         if(sum == 0) {
             console.log(11111);
+            alert("信息已到底部，请等待他人发送消息");
             clearInterval(time1);
             // clearInterval(_time);
             // setTimeout(roll, 6000);
