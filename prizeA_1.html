@@ -222,6 +222,7 @@
                 console.log(loadedImages + '/' + numImages);
                 if (++loadedImages >= numImages) {
                     // callback
+                    alert("图片加载成功");
                     $('.start').click(function(){
                         if(isBegin) return false;
                         isBegin = true;
