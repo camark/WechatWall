@@ -1,9 +1,6 @@
-// 点击抽奖跳转
-$(".prize").on('click', function(){
-    location.assign("prizeB.html");
-});
 var time1,time2,getTimer;
-var curMsg = 1
+var curMsg = 1;
+var msg = 0; 
 // 页面加载完后触发
 $(function(){
     getData();
@@ -19,7 +16,7 @@ $(function(){
 
 // 定时获取数据
 function getData() {
-    getTimer = setInterval(Ajax, 3000);
+    getTimer = setInterval(Ajax, 1000);
 }
 
 // 微信墙滚动
@@ -50,7 +47,7 @@ function wallScroll() {
         //         clearInterval(time1);
         //     }
         // },8);
-    }, 6000);
+    }, 5000);
 }
 
 // Ajax
@@ -58,26 +55,31 @@ function Ajax() {
 
     $.ajax({ 
         type: "GET",    
-        url: "http://2.934067696.sinaapp.com/index.php",
-        dataType:'jsonp',  
-        data:'',  
-        jsonp:'callback',  
+        url: "http://115.28.240.51/wechat/wall.php?msgid=" + msg,
+        dataType: 'json',
+        data:'',   
         success:function(result) { 
             console.log(result);
-            $(".show-container").append(
+            console.log(result.num)
+            for(var i = 0; i<result.num; i++) {
+                $(".show-container").append(
                 "<div class='window'>" +
                 "<div class='information col-lg-3 col-md-3 col-sm-3 col-xs-3'>" +
                 "<div class='avatar'>" +
-                "<img class='img-responsive' src='" + result.avatar + "'>" +
+                "<img class='img-responsive' src='http://115.28.240.51/wechat/img/" + result.msg[i].FakeId + ".jpg'>" +
                 "</div></div>" +
                 "<div class='show col-lg-9 col-md-9 col-sm-9 col-xs-9'>" +
-                "<h3><strong>" + result.name + "</strong></h3>" +
-                "<h1>" + result.words  + "</h1>" +
+                "<h3><strong>" + result.msg[i].NickName + "</strong></h3>" +
+                "<h1>" + result.msg[i].Content  + "</h1>" +
                 "</div></div>"
-            );
+                );
+            }  
+            if(result.num > 0) {
+                msg = result.msg[result.num - 1].MsgId;
+            }
                     
         },  
-        timeout:3000, //请求超时时间
+        //timeout:3000, //请求超时时间
         error: function(jqXHR){     
             console.log("发生错误：" + jqXHR.status);  
         },     
