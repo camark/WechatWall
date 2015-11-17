@@ -168,7 +168,7 @@ function roll() {
             // setTimeout(roll, 6000);
         }
         sum--;
-    }, 2000);
+    }, 1000);
     // }
 }
 
