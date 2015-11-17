@@ -8,13 +8,13 @@ var curMsg = 1
 $(function(){
     getData();
     wallScroll();
-    // $(window).on('blur',function(){
-    //     clearInterval(time1);
-    //     clearInterval(time2);
-    // });
-    // $(window).on('focus',function(){
-    //     wallScroll();
-    // });
+//     // $(window).on('blur',function(){
+//     //     clearInterval(time1);
+//     //     clearInterval(time2);
+//     // });
+//     // $(window).on('focus',function(){
+//     //     wallScroll();
+//     // });
 })
 
 // 定时获取数据
@@ -38,12 +38,7 @@ function wallScroll() {
         var dTop = pTop - nTop
         console.log(dTop)
         curMsg++
-        //if (curMsg===0) 
-        // calculate new scroll distance
-        //scrollDist -= 184;
-        var transformStr = 'translate(-0, '+dTop+'px);'
-        //console.log(transformStr)
-        cont.style = 'transform: '+transformStr
+        cont.style.top = dTop+'px'
 
         // var sHeight = page.scrollTop();
         // console.log(page.scrollTop());
