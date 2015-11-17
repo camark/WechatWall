@@ -202,7 +202,7 @@
         url: "http://115.28.240.51/wechat/user.php",
         dataType:'json',  
         data:'',  
-        jsonp:'callback',  
+        // jsonp:'callback',  
         success:function(result) { 
             people = result.user; 
             loadImgs();
@@ -222,6 +222,7 @@
                 console.log(loadedImages + '/' + numImages);
                 if (++loadedImages >= numImages) {
                     // callback
+                    alert("图片加载成功");
                     $('.start').click(function(){
                         if(isBegin) return false;
                         isBegin = true;
