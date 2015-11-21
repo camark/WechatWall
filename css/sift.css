@@ -31,7 +31,6 @@ a:hover {
     margin-top: 2%;
     margin-right: 1.5%;
     margin-left: 1.5%;
-    /*overflow: hidden;*/
     position: relative;
 }
 .window {
@@ -41,9 +40,7 @@ a:hover {
     position: relative;
 }
 .information {
-    /*margin-top: 1%;*/
     height: 100%;
-    /*background-color: #dcdcdc;*/
 }
 .information img{
     width: 60%;
@@ -58,14 +55,6 @@ h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-/*.avatar {
-    margin-top: 4%;
-    height: 60%;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #dcdcdc;
-}*/
 .show {
     height: 100%;
 }

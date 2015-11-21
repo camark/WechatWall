@@ -5,8 +5,7 @@
  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
  	<title>抽奖</title>
- 	<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+ 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<style>
 	html,body {
 		margin: 0;
@@ -17,7 +16,8 @@
 		background: url(img/body_bg.jpg) 0px 0px repeat-x #000;
 	}
 	.main_bg {
-		background: url(img/main_bg1.2.jpg) top center no-repeat;
+		background: url(img/main_bg1.2.jpg) top center;
+		background-size: 100% 100%;
 		height:1000px;
 	}
 	.main {
@@ -58,37 +58,19 @@
 	.btn-box {
 		display: block;
 		position: absolute;
-		left: 20%;
+		left: 40%;
 		top: 600px;
 	}
 	.start {
 		width: 264px;
 		height: 89px;
 		margin-right: 75px;
-		/*position: absolute;
-		left: 23%;
-		bottom: 50px;
-		margin-left: -132px;*/
 		cursor: pointer;
         font-size: 30px;
         color: #444;
         background-color: #ebb433;
         line-height: 70px;
         border-radius: 10px;
-	}
-	.return {
-		width: 264px;
-		height: 89px;
-		/*position: absolute;
-		left: 73%;
-		bottom: 50px;
-		margin-left: -132px;*/
-		cursor: pointer;
-        font-size: 30px;
-        color: #444;
-        border-radius: 10px;
-        background-color: #ebb433;
-        line-height: 70px;
 	}
 </style>
 </head>
@@ -100,13 +82,10 @@
     		<div class="num_box">
       			<div class="num"></div>
       			<div class="num"></div>
-      			<div class="num"></div>
-      			<!-- <div class="num"></div> -->
-      			
+      			<div class="num"></div>      			
     		</div>
     		<div class="btn-box">
     			<div class="btn start"><strong>开始摇奖</strong></div>
-      			<div class="btn return"><strong>微信墙</strong></div>
     		</div>
   		</div>
 	</div>
@@ -119,6 +98,7 @@
 		var rand = parseInt(Math.random() * (x - y + 1) + y);
 		return rand;
 	}
+	// 判断是否已经开始
 	var isBegin = false;
 	$(function(){
 		var u = 265;
@@ -127,7 +107,8 @@
 			isBegin = true;
 			$(".num").css('backgroundPositionY', 0);
 			var result = numRand();
-			// result = 1;
+
+			// 格式设置为3位数
 			if (result < 10) {
 				result = '00' + result;
 			}else if(result > 10 && result < 100) {
@@ -139,7 +120,7 @@
 
 			switch (_rand) {
 				// 随机选择抽奖效果
-                	case 0:
+                case 0:
                 	var num_arr = (result+'').split('');
 					$(".num").each(function(index){
 						var _num = $(this);
@@ -158,7 +139,7 @@
 					});
 					break;
 
-					case 1:
+				case 1:
 					var num_arr = (result+'').split('');
 					$(".num").each(function(index){
 						var _num = $(this);
@@ -178,7 +159,7 @@
 					break;
 
 
-					case 2:
+				case 2:
 					var num_arr = (result+'').split('');
 					$(".num").each(function(index){
 						var _num = $(this);
@@ -199,11 +180,6 @@
             }
 		});	
 
-		$(".return").click(function(){
-			// location.assign("index.html");
-			window.history.go(-1);
-			// console.log(1);
-		});
 	});
 
 	</script>
