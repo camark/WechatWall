@@ -1,13 +1,3 @@
-#微信墙以及抽奖的前端
+# WechatWall
+南京邮电大学计算机学院、软件学院 2015迎新晚会微信墙
 
-##微信墙
-index.html
-
-##筛选页面
-sift.html
-
-##通过上墙用户抽奖
-prize_img.html
-
-##通过号码抽奖
-prize_number.html
